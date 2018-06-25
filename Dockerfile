@@ -30,4 +30,4 @@ RUN groupadd --system chrome && \
     mkdir --parents /home/chrome/reports && \
     chown --recursive chrome:chrome /home/chrome
 
-USER chrome
+# USER chrome
