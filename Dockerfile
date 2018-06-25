@@ -15,7 +15,8 @@ RUN wget -q https://chromedriver.storage.googleapis.com/$(wget -q -O - https://c
 RUN unzip chromedriver_linux64.zip -d /usr/local/bin
 
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-    dpkg -i google-chrome-stable_current_amd64.deb
+    dpkg -i google-chrome-stable_current_amd64.deb && \
+    ln -s /usr/bin/google-chrome /usr/bin/chrome
 
 RUN rm -rf /var/lib/apt/lists/* && \
     rm chromedriver_linux64.zip google-chrome-stable_current_amd64.deb
@@ -28,3 +29,5 @@ RUN groupadd --system chrome && \
     useradd --system --create-home --gid chrome --groups audio,video chrome && \
     mkdir --parents /home/chrome/reports && \
     chown --recursive chrome:chrome /home/chrome
+
+USER chrome
