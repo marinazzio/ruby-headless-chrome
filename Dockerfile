@@ -1,4 +1,4 @@
-FROM marinad/ruby:2.6.1
+FROM marinad/ruby:2.6.2
 LABEL maintainer="denis.kiselyov@gmail.com"
 
 # Node
